@@ -281,8 +281,8 @@
                 {
                     "type": "file",
                     "dest-filename": "webaccess.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/45acb93d207f2deaeba0b710547e9750e1d68f385249661104f7146d7e1902e4",
-                    "sha256": "45acb93d207f2deaeba0b710547e9750e1d68f385249661104f7146d7e1902e4",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/9254ef3ad0008d44c4b47a79705394837154079071c425b9ca3b13530a3d00bc",
+                    "sha256": "9254ef3ad0008d44c4b47a79705394837154079071c425b9ca3b13530a3d00bc",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -302,8 +302,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/14e21c42f121cbf80e2531c4f0bc9f03133320b707560623657e18253ae227dd",
-                    "sha256": "14e21c42f121cbf80e2531c4f0bc9f03133320b707560623657e18253ae227dd",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/9218e571b8a4978409dcb8f438e9600802e027ba8b6058efaddc3e083337c28a",
+                    "sha256": "9218e571b8a4978409dcb8f438e9600802e027ba8b6058efaddc3e083337c28a",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -314,8 +314,6 @@
         "name": "version",
         "buildsystem": "simple",
         "build-commands": [
-            "install com.thincast.client.appdata.xml /app/share/appdata",
-            "install com.thincast.client.rdwebaccess.appdata.xml /app/share/appdata",
             "ln -sf -T ../extra/libopenh264-1.8.0-linux64.4.so /app/lib/libopenh264.so.4",
             "mkdir -p  /app/share/thincast/",
             "echo [General] > /app/share/thincast/com.thincast.client.info",
