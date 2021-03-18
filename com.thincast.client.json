@@ -1,7 +1,7 @@
 {
     "app-id": "com.thincast.client",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.13",
+    "runtime-version": "5.15",
     "sdk": "org.kde.Sdk",
     "command": "rdc",
     "separate-locales": false,
@@ -9,15 +9,11 @@
         "proprietary"
     ],
     "finish-args": [
-        /* X11 + XShm access */
         "--share=ipc",
         "--socket=x11",
         "--socket=pcsc",
-        /* Needs to talk to the network */
         "--share=network",
-        /* Play sounds redirected from guests */
         "--socket=pulseaudio",
-        /* Allow rw access to (possible) redirection folders */
         "--device=all",
         "--filesystem=home",
         "--filesystem=/proc",
@@ -27,309 +23,41 @@
         "--env=QT_VULKAN_LIB=libvulkan.so.1"
     ],
     "cleanup": [
-               "/sbin",
-               "/include",
-               "/share/doc",
-               "/share/man",
-               "/lib/cmake",
-               "/lib/pkgconfig",
-               "/lib/*.la",
-               "/lib/*.a",
-               "/mkspecs"
     ],
     "modules": [
-        {
-            "name": "glslang",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-               "-DBUILD_SHARED_LIBS=ON"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/KhronosGroup/glslang",
-                    "tag": "8.13.3743"
-                }
-            ]
-        },
-        {
-            "name": "vulkan-headers",
-            "buildsystem": "cmake-ninja",
-            "sources": [
-            {
-               "type": "git",
-               "url" : "https://github.com/KhronosGroup/Vulkan-Headers.git",
-               "tag": "v1.2.152"
-            }
-            ]
-        },
-        {
-           "name": "vulkan-tools",
-               "buildsystem": "cmake-ninja",
-               "config-opts": [
-                 "-DGLSLANG_INSTALL_DIR=/app",
-                 "-DVULKAN_HEADERS_INSTALL_DIR=/app",
-                 "-DCMAKE_BUILD_TYPE=Release"
-           ],
-               "sources": [
-               {
-                  "type": "git",
-                  "url": "https://github.com/KhronosGroup/Vulkan-Tools.git",
-                  "tag": "v1.2.151"
-               }
-           ]
-        },
-        {
-            "name": "libusb",
-            "buildsystem": "autotools",
-            "config-opts": ["--disable-static", "--disable-udev"],
-            "sources": [
-                {
-                     "type": "git",
-                     "url": "https://github.com/libusb/libusb.git",
-                     "tag": "v1.0.23"
-                }
-            ]
-        },
-        {
-            /**
-             * libfreerdp use xprop to try to detect keyboard layout
-             */
-            "name": "xprop",
-            "buildsystem": "autotools",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://xorg.freedesktop.org/releases/individual/app/xprop-1.2.4.tar.bz2",
-                    "sha256": "8c77fb096e46c60032b7e2bde9492c3ffcc18734f50b395085a5f10bfd3cf753"
-                }
-            ]
-        },
-        {
-            "name": "pcsc",
-            "buildsystem": "autotools",
-            "config-opts": [
-                "--enable-pic",
-                "--enable-libusb",
-                "--enable-shared",
-                "--disable-libudev",
-                "--with-systemdsystemunitdir=/app/lib/systemd/"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/LudovicRousseau/PCSC",
-                    "tag": "pcsc-1.9.0"
-                }
-            ]
-        },
-        {
-            "name": "ffmpeg",
-            "buildsystem": "autotools",
-            "config-opts": [
-                "--enable-shared",
-                "--enable-swresample",
-                "--disable-static",
-                "--disable-avdevice",
-                "--disable-avcodec",
-                "--disable-avformat",
-                "--disable-postproc",
-                "--disable-avfilter",
-                "--disable-programs",
-                "--disable-doc"
-            ],
-            "cleanup": [
-                "/share/ffmpeg"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/FFmpeg/ffmpeg.git",
-                    "tag": "n4.3.1"
-                }
-            ]
-        },
-        {
-            "name": "openh264",
-            "buildsystem": "simple",
-            "build-commands": [
-                "make PREFIX=/app -j install"
-            ],
-            "sources": [
-               {
-                   "type": "git",
-                   "url": "https://github.com/cisco/openh264.git",
-                   "tag": "v1.8.0"
-               }
-            ],
-            "cleanup": [
-               "/lib/libopenh264.so.1.8.0"
-            ]
-        },
-        {
-            "name": "openh264-runtime",
-            "buildsystem": "simple",
-            "sources": [
-                {
-                    "type": "extra-data",
-                    "filename": "libopenh264-1.8.0-linux64.4.so.bz2",
-                    "only-arches": [
-                        "x86_64"
-                    ],
-                    "url": "http://ciscobinary.openh264.org/libopenh264-1.8.0-linux64.4.so.bz2",
-                    "sha256": "0b879e4ba40df21b44c2531d343b6fb1f44b35176d4780ecb48dcab7f75f6779",
-                    "size": 529202
-                },
-                {
-                    "type": "script",
-                    "dest-filename": "apply_extra",
-                    "commands": [
-                        "bunzip2 libopenh264-1.8.0-linux64.4.so.bz2"
-                    ]
-                }
-            ],
-            "build-commands": [
-                "install apply_extra /app/bin/apply_extra"
-            ]
-        },
-        {
-            "name": "freerdp",
-            "buildsystem": "cmake-ninja",
-            "config-opts": [
-                "-DCMAKE_INSTALL_LIBDIR:PATH=lib",
-                "-DCHANNEL_TSMF:BOOL=OFF",
-                "-DCHANNEL_URBDRC:BOOL=ON",
-                "-DCHANNEL_PRINTER:BOOL=ON",
-                "-DCHANNEL_PRINTER_CLIENT:BOOL=ON",
-                "-DBUILD_TESTING:BOOL=OFF",
-                "-DWITH_MANPAGES:BOOL=OFF",
-                "-DWITH_GSSAPI:BOOL=OFF",
-                "-DWITH_PCSC:BOOL=ON",
-                "-DWITH_SERVER:BOOL=OFF",
-                "-DWITH_SAMPLE:BOOL=OFF",
-                "-DWITH_CUPS:BOOL=OFF",
-                "-DWITH_OPENH264:BOOL=ON",
-                "-DWITH_OPENH264_LOADING:BOOL=OFF",
-                "-DWITH_FFMPEG:BOOL=OFF",
-                "-DWITH_DSP_FFMPEG:BOOL=OFF",
-                "-DWITH_OSS:BOOL=OFF",
-                "-DWITH_PULSE:BOOL=ON",
-                "-DWITH_ALSA:BOOL=OFF",
-                "-DWITH_OSS:BOOL=OFF",
-                "-DWITH_CAIRO:BOOL=ON",
-                "-DWITH_SWSCALE:BOOL=ON",
-                "-DWITH_WINPR_TOOLS:BOOL=OFF",
-                "-DWITH_WAYLAND:BOOL=OFF",
-                "-DWITH_CLIENT:BOOL=OFF"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/FreeRDP/FreeRDP.git",
-                    "branch": "stable-2.0",
-                    "commit": "c72055d740dcf188d2309fdb5a5c66aee19cca44"
-                }
-            ]
-        },
-        {
-            "name": "libsecret",
-            "config-opts": [
-                "--disable-static",
-                "--disable-gtk-doc",
-                "--disable-manpages"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libsecret.git",
-                    "tag": "0.20.3"
-                }
-            ]
-        },
-        {
-            "name": "qtkeychain",
-            "buildsystem": "cmake-ninja",
-            "cleanup": [
-                "mkspecs"
-            ],
-            "config-opts": [
-                "-DCMAKE_INSTALL_LIBDIR=/app/lib",
-                "-DLIB_INSTALL_DIR=/app/lib",
-                "-DBUILD_TRANSLATIONS=NO"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/frankosterfeld/qtkeychain/archive/v0.10.0.tar.gz",
-                    "sha256": "5f916cd97843de550467db32d2e10f218b904af5b21cfdfcc7c6425d7dfc3ec2",
-                    "only-arches": [
-                        "x86_64"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "webaccess",
-            "buildsystem": "simple",
-            "cleanup": [
-                "webaccess.tar.xz"
-            ],
-            "build-commands": [
-                "tar xf webaccess.tar.xz --strip-components=1 -C /app"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "dest-filename": "webaccess.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/9254ef3ad0008d44c4b47a79705394837154079071c425b9ca3b13530a3d00bc",
-                    "sha256": "9254ef3ad0008d44c4b47a79705394837154079071c425b9ca3b13530a3d00bc",
-                    "only-arches": [
-                        "x86_64"
-                    ]
-                }
-            ]
-        },
         {
             "name": "client",
             "buildsystem": "simple",
             "cleanup": [
-                "client.tar.xz"
+                "client.tar.xz",
+                "/share/app-info/icons/flatpak/64x64/com.thincast.client.png",
+                "/share/app-info/icons/flatpak/128x128/com.thincast.client.png",
+                "/share/app-info/xmls/com.thincast.client.xml.gz"
             ],
             "build-commands": [
-                "tar xf client.tar.xz --strip-components=1 -C /app"
+                "tar xf client.tar.xz -C /app"
             ],
             "sources": [
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/9218e571b8a4978409dcb8f438e9600802e027ba8b6058efaddc3e083337c28a",
-                    "sha256": "9218e571b8a4978409dcb8f438e9600802e027ba8b6058efaddc3e083337c28a",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/4be9b7457e337772279d808e02f985e49183f07cf225351035919acaaf484c04",
+                    "sha256": "4be9b7457e337772279d808e02f985e49183f07cf225351035919acaaf484c04",
                     "only-arches": [
                         "x86_64"
                     ]
-                }
-            ]
-        },
-    {
-        "name": "version",
-        "buildsystem": "simple",
-        "build-commands": [
-            "ln -sf -T ../extra/libopenh264-1.8.0-linux64.4.so /app/lib/libopenh264.so.4",
-            "mkdir -p  /app/share/thincast/",
-            "echo [General] > /app/share/thincast/com.thincast.client.info",
-            "echo BundleVersion=1.0.116 >> /app/share/thincast/com.thincast.client.info",
-            "echo -n ManifestSha256= >> /app/share/thincast/com.thincast.client.info",
-            "sha256sum com.thincast.client.json | cut -d' ' -f1 >> /app/share/thincast/com.thincast.client.info",
-            "echo -n ManifestGitTag= >> /app/share/thincast/com.thincast.client.info",
-            "git describe --always --tags >> /app/share/thincast/com.thincast.client.info"
-        ],
-                "sources": [
+                },
                 {
-                    "type": "dir",
-                    "path": "."
+                    "type": "file",
+                    "dest-filename": "client.tar.xz",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/180f985143a8dc38cf1da60460cf1e6c09e37a3cd67374f6cda0692beb8138ba",
+                    "sha256": "180f985143a8dc38cf1da60460cf1e6c09e37a3cd67374f6cda0692beb8138ba",
+                    "only-arches": [
+                        "aarch64"
+                    ]
                 }
-            ]
 
-    }
+            ]
+        }
     ]
 }
