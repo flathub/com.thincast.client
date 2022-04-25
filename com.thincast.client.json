@@ -58,6 +58,20 @@
                 }
 
             ]
-        }
-		]
+        },
+		{
+        "name": "version",
+        "buildsystem": "simple",
+        "build-commands": [
+            "install com.thincast.client.appdata.xml /app/share/appdata/"
+        ],
+                "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
+
+    }
+    ]
 }
