@@ -41,8 +41,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/70c8b9afad1b377fec37f302f0d52f646ed63d7c5e72ae41dc189f9e491b9a00",
-                    "sha256": "70c8b9afad1b377fec37f302f0d52f646ed63d7c5e72ae41dc189f9e491b9a00",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/7510e4e9a4bacbe4f6ad44bd59660d375044267354f1f28ba0c8d13ff50fcbe8",
+                    "sha256": "7510e4e9a4bacbe4f6ad44bd59660d375044267354f1f28ba0c8d13ff50fcbe8",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -50,28 +50,14 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/b156ae0aca89ccdb9a8c20950877d122683634c7cee7b1d0a70ac109eea8ec0c",
-                    "sha256": "b156ae0aca89ccdb9a8c20950877d122683634c7cee7b1d0a70ac109eea8ec0c",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/ffc7c8cde664f471794a4d002d1e441fd6314d210cddfe0c41c3ff4aacd33fd6",
+                    "sha256": "ffc7c8cde664f471794a4d002d1e441fd6314d210cddfe0c41c3ff4aacd33fd6",
                     "only-arches": [
                         "aarch64"
                     ]
                 }
 
             ]
-        },
-		{
-        "name": "version",
-        "buildsystem": "simple",
-        "build-commands": [
-            "install com.thincast.client.appdata.xml /app/share/appdata/"
-        ],
-                "sources": [
-                {
-                    "type": "dir",
-                    "path": "."
-                }
-            ]
-
-    }
-    ]
+        }
+		]
 }
