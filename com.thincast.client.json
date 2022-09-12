@@ -1,7 +1,7 @@
 {
     "app-id": "com.thincast.client",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15",
+    "runtime-version": "5.15-21.08",
     "sdk": "org.kde.Sdk",
     "command": "rdc",
     "separate-locales": false,
@@ -41,8 +41,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/7510e4e9a4bacbe4f6ad44bd59660d375044267354f1f28ba0c8d13ff50fcbe8",
-                    "sha256": "7510e4e9a4bacbe4f6ad44bd59660d375044267354f1f28ba0c8d13ff50fcbe8",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/f65ebb0346910dee867032081700500753a812b047c6afe0c99cdfa6958b17ee",
+                    "sha256": "f65ebb0346910dee867032081700500753a812b047c6afe0c99cdfa6958b17ee",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -50,28 +50,14 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/ffc7c8cde664f471794a4d002d1e441fd6314d210cddfe0c41c3ff4aacd33fd6",
-                    "sha256": "ffc7c8cde664f471794a4d002d1e441fd6314d210cddfe0c41c3ff4aacd33fd6",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/90ed9b274d1353c02c86192beee93e255211c547df7425283c7b1dfb5f730a5f",
+                    "sha256": "90ed9b274d1353c02c86192beee93e255211c547df7425283c7b1dfb5f730a5f",
                     "only-arches": [
                         "aarch64"
                     ]
                 }
 
             ]
-        },
-		{
-        "name": "version",
-        "buildsystem": "simple",
-        "build-commands": [
-            "install com.thincast.client.appdata.xml /app/share/appdata/"
-        ],
-                "sources": [
-                {
-                    "type": "dir",
-                    "path": "."
-                }
-            ]
-
-    }
-    ]
+        }
+		]
 }
