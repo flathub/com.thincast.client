@@ -28,12 +28,6 @@
         {
             "name": "client",
             "buildsystem": "simple",
-            "cleanup": [
-                "client.tar.xz",
-                "/share/app-info/icons/flatpak/64x64/com.thincast.client.png",
-                "/share/app-info/icons/flatpak/128x128/com.thincast.client.png",
-                "/share/app-info/xmls/com.thincast.client.xml.gz"
-            ],
             "build-commands": [
                 "tar xf client.tar.xz -C /app"
             ],
