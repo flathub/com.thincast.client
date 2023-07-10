@@ -1,7 +1,7 @@
 {
     "app-id": "com.thincast.client",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-21.08",
+    "runtime-version": "5.15-22.08",
     "sdk": "org.kde.Sdk",
     "command": "rdc",
     "separate-locales": false,
@@ -11,12 +11,10 @@
     "finish-args": [
         "--share=ipc",
         "--socket=x11",
-        "--socket=pcsc",
         "--share=network",
         "--socket=pulseaudio",
         "--device=all",
         "--filesystem=home",
-        "--filesystem=/proc",
         "--filesystem=/media",
         "--filesystem=/run/media",
         "--filesystem=xdg-run/gvfs",
