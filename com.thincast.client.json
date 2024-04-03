@@ -1,7 +1,7 @@
 {
     "app-id": "com.thincast.client",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-22.08",
+    "runtime-version": "5.15-23.08",
     "sdk": "org.kde.Sdk",
     "command": "rdc",
     "separate-locales": false,
@@ -30,12 +30,12 @@
         "org.freedesktop.Platform.openh264": {
             "directory": "lib/openh264",
             "add-ld-path": ".",
-            "version": "2.1.0"
+            "version": "2.4.1"
         },
 				"org.freedesktop.Platform.ffmpeg-full": {
 					"directory": "lib/ffmpeg",
 					"add-ld-path": ".",
-					"version": "22.08"
+					"version": "23.08"
 				}
     },
     "modules": [
@@ -49,8 +49,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/c463d09fb25ce513c487cb7bb13ab12e76c9e5490f6ca513d7d6b06a23d53a9e",
-                    "sha256": "c463d09fb25ce513c487cb7bb13ab12e76c9e5490f6ca513d7d6b06a23d53a9e",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/ec89799335784ccc36c9f072e25237ebb8c7026e8a1b1b3fac2d822179249349",
+                    "sha256": "ec89799335784ccc36c9f072e25237ebb8c7026e8a1b1b3fac2d822179249349",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -58,8 +58,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/7bb0c36c562db6d234e1d64a55c42ebadbe88ad8df6f29a7d71bc40358c3ec2c",
-                    "sha256": "7bb0c36c562db6d234e1d64a55c42ebadbe88ad8df6f29a7d71bc40358c3ec2c",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/e97f5776d7de2b56494d0d9310db6a251cef8da8c01d8115366f55ffdb7d0549",
+                    "sha256": "e97f5776d7de2b56494d0d9310db6a251cef8da8c01d8115366f55ffdb7d0549",
                     "only-arches": [
                         "aarch64"
                     ]
