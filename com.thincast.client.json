@@ -19,7 +19,9 @@
         "--filesystem=/run/media",
         "--filesystem=xdg-run/gvfs",
         "--talk-name=com.freedesktop.secrets",
+        "--talk-name=org.kde.kwalletd",
         "--talk-name=org.kde.kwalletd5",
+        "--talk-name=org.kde.kwalletd6",
         "--env=QT_VULKAN_LIB=libvulkan.so.1"
     ],
     "cleanup": [
