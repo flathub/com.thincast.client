@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.thincast.client</id>
+   <name>Thincast Remote Desktop Client</name>
+  <summary>A free RDP (Remote Desktop Protocol) Client for Linux, macOS and Windows</summary>
+  <description>
+    <p>
+    Thincast Client allows you to connect to virtual applications and desktops over the RDP (Remote Desktop Protocol). It offers features like built-in support for redirecting webcams, configuring remote apps, regular security updates and hardware-accelerated video decoding to extend the battery life of your device, ideal when working on the go. Using the Remote Desktop (RD) WebAccess Client you gain easy access to and control of published virtual machines (with Thincast Workstation), desktop sessions and applications. Initial support for 64-bit ARM based devices (aarch64 only) like Raspberry Pi has been added with V. 1.0.184.
+    </p>
+    <p>As of today, we are the main contributor to the FreeRDP project.</p>
+  </description>
+   <categories>
+    <category>Network</category>
+    <category>Utility</category>
+    <category>RemoteAccess</category>
+  </categories>
+  <developer id="com.thincast">
+      <name>Thincast Technologies GmbH</name>
+  </developer>
+  <developer_name>Thincast Technologies GmbH</developer_name>
+  <metadata_license>CC-BY-4.0</metadata_license>
+  <project_license>LicenseRef-proprietary=https://thincast.com/licenses/rdc/license.html</project_license>
+  <url type="homepage">https://thincast.com/</url>
+  <url type="contact">https://thincast.com/contact</url>
+  <url type="faq">https://thincast.com/en/products/client</url>
+  <url type="help">https://thincast.com/en/documentation/tcc/latest</url>
+  <icon type="stock">com.thincast.client</icon>
+  <screenshots>
+      <screenshot type="default">
+            <caption>Choose between a full desktop session or a seamlessly integrated remote application</caption>
+            <image>https://thincast.com/cms/images/client/gui/1.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Change the resolution of your remote display</caption>
+            <image>https://thincast.com/cms/images/client/gui/2.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Specify the path of the application that you want to launch</caption>
+            <image>https://thincast.com/cms/images/client/gui/3.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Access local resources from the client system inside the Remote Desktop session</caption>
+            <image>https://thincast.com/cms/images/client/gui/4.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Redirect smart cards, webcams and drives from the client to your RemotePC</caption>
+            <image>https://thincast.com/cms/images/client/gui/5.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Predefined network profiles for different connection speeds</caption>
+            <image>https://thincast.com/cms/images/client/gui/6.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Fully combatible with Thincast RD Gateway for Linux and Windows</caption>
+            <image>https://thincast.com/cms/images/client/gui/7.png</image>
+        </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.0" />
+  <launchable type="desktop-id">com.thincast.client.desktop</launchable>
+
+  <releases>
+      <release version="1.1.608" urgency="medium" date="2025-03-27">
+      <url>https://thincast.com/en/documentation/tcc/1.1.608/changelog</url>
+    </release>
+  </releases>
+</component>
