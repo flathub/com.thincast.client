@@ -60,8 +60,8 @@
   <launchable type="desktop-id">com.thincast.client.desktop</launchable>
 
   <releases>
-      <release version="1.1.608" urgency="medium" date="2025-03-27">
-      <url>https://thincast.com/en/documentation/tcc/1.1.608/changelog</url>
+      <release version="1.1.632" urgency="medium" date="2025-06-20">
+      <url>https://thincast.com/en/documentation/tcc/1.1.632/changelog</url>
     </release>
   </releases>
 </component>
