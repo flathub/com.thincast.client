@@ -49,12 +49,10 @@
             "name": "client",
             "buildsystem": "simple",
             "build-commands": [
-                "tar xf client.tar.xz -C /app",
-                "install -D com.thincast.client.appdata.xml $FLATPAK_DEST/share/appdata"
+                "tar xf client.tar.xz -C /app"
             ],
             "cleanup": [
                 "/share/appdata/com.thincast.client.rdwebaccess.appdata.xml",
-                "/share/metainfo/com.thincast.client.metainfo.xml",
                 "/share/app-info/icons/flatpak/64x64@2/com.thincast.client.png",
                 "/share/app-info/icons/flatpak/128x128@2/com.thincast.client.png",
                 "/share/app-info/icons/flatpak/48x48/com.thincast.client.png",
@@ -69,8 +67,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/11a16abaf68a76a83d7f69c2b0f088545960117063ef06840485ef3e73cedd28",
-                    "sha256": "11a16abaf68a76a83d7f69c2b0f088545960117063ef06840485ef3e73cedd28",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/651f42111a21d80e3d9abf59fb04acd8a89482879bb322cf1eda939af9f6ae0d",
+                    "sha256": "651f42111a21d80e3d9abf59fb04acd8a89482879bb322cf1eda939af9f6ae0d",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -78,8 +76,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/cc895f5ea089e00f4596083e8741ab2e52ab897a66c76ca0443ca6eb91c2e816",
-                    "sha256": "cc895f5ea089e00f4596083e8741ab2e52ab897a66c76ca0443ca6eb91c2e816",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/3716208a7751c9aa156135dcb625759b55c9b429cfd59f10fc2309c7475ee515",
+                    "sha256": "3716208a7751c9aa156135dcb625759b55c9b429cfd59f10fc2309c7475ee515",
                     "only-arches": [
                         "aarch64"
                     ]
