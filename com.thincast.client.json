@@ -1,7 +1,7 @@
 {
     "app-id": "com.thincast.client",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-24.08",
+    "runtime-version": "5.15-25.08",
     "sdk": "org.kde.Sdk",
     "command": "rdc",
     "separate-locales": false,
@@ -26,24 +26,6 @@
         "--talk-name=org.kde.kwalletd6",
         "--env=QT_VULKAN_LIB=libvulkan.so.1"
     ],
-    "cleanup": [
-    ],
-    "cleanup-commands": [
-        "mkdir -p /app/lib/ffmpeg",
-        "mkdir -p /app/lib/openh264"
-    ],
-    "add-extensions": {
-        "org.freedesktop.Platform.openh264": {
-            "directory": "lib/openh264",
-            "add-ld-path": ".",
-            "version": "2.5.1"
-        },
-				"org.freedesktop.Platform.ffmpeg-full": {
-					"directory": "lib/ffmpeg",
-					"add-ld-path": ".",
-					"version": "24.08"
-				}
-    },
     "modules": [
         {
             "name": "client",
@@ -82,8 +64,7 @@
                         "aarch64"
                     ]
                 }
-
             ]
         }
-		]
+	]
 }
