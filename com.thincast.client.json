@@ -61,10 +61,6 @@
             ],
             "sources": [
                 {
-                    "type": "dir",
-                    "path": "."
-                },
-                {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
                     "url": "https://thincast.com/software/download/artifact/by-hash/edea44dfd0d09836009efedfbf10aa10d440e6b113a916a447751fbecc2c09e8",
