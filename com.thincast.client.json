@@ -20,6 +20,7 @@
         "--filesystem=/media",
         "--filesystem=/run/media",
         "--filesystem=xdg-run/gvfs",
+        "--filesystem=xdg-run/pipewire-0:ro",
         "--talk-name=org.freedesktop.secrets",
         "--talk-name=org.kde.kwalletd",
         "--talk-name=org.kde.kwalletd5",
