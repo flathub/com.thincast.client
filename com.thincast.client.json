@@ -20,6 +20,7 @@
         "--filesystem=/media",
         "--filesystem=/run/media",
         "--filesystem=xdg-run/gvfs",
+        "--filesystem=xdg-run/pipewire-0:ro",
         "--talk-name=org.freedesktop.secrets",
         "--talk-name=org.kde.kwalletd",
         "--talk-name=org.kde.kwalletd5",
@@ -43,14 +44,10 @@
             ],
             "sources": [
                 {
-                    "type": "dir",
-                    "path": "."
-                },
-                {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/edea44dfd0d09836009efedfbf10aa10d440e6b113a916a447751fbecc2c09e8",
-                    "sha256": "edea44dfd0d09836009efedfbf10aa10d440e6b113a916a447751fbecc2c09e8",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/394a06540758ef6ab6ce6735937bcb22212ea656f739cb369e1adad98fa6af42",
+                    "sha256": "394a06540758ef6ab6ce6735937bcb22212ea656f739cb369e1adad98fa6af42",
                     "only-arches": [
                         "x86_64"
                     ]
@@ -58,8 +55,8 @@
                 {
                     "type": "file",
                     "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/23980507495199b5aaee785d02aa0d7b0425685103e2f2c9609f2b88cd452a33",
-                    "sha256": "23980507495199b5aaee785d02aa0d7b0425685103e2f2c9609f2b88cd452a33",
+                    "url": "https://thincast.com/software/download/artifact/by-hash/75d9946180a249f529b7564b4aaa11523b85ee2336d798dd6884346f55ff0f12",
+                    "sha256": "75d9946180a249f529b7564b4aaa11523b85ee2336d798dd6884346f55ff0f12",
                     "only-arches": [
                         "aarch64"
                     ]
