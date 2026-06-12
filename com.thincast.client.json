@@ -1,86 +1,80 @@
 {
-    "app-id": "com.thincast.client",
-    "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-24.08",
-    "sdk": "org.kde.Sdk",
-    "command": "rdc",
-    "separate-locales": false,
-    "appstream-compose": true,
-    "tags": [
-        "proprietary"
-    ],
-    "finish-args": [
-        "--share=ipc",
-        "--socket=x11",
-        "--share=network",
-        "--socket=pulseaudio",
-        "--socket=pcsc",
-        "--device=all",
-        "--filesystem=home",
-        "--filesystem=/media",
-        "--filesystem=/run/media",
-        "--filesystem=xdg-run/gvfs",
-        "--filesystem=xdg-run/pipewire-0:ro",
-        "--talk-name=org.freedesktop.secrets",
-        "--talk-name=org.kde.kwalletd",
-        "--talk-name=org.kde.kwalletd5",
-        "--talk-name=org.kde.kwalletd6",
-        "--env=QT_VULKAN_LIB=libvulkan.so.1"
-    ],
-    "cleanup": [
-    ],
-    "cleanup-commands": [
-        "mkdir -p /app/lib/ffmpeg",
-        "mkdir -p /app/lib/openh264"
-    ],
-    "add-extensions": {
-        "org.freedesktop.Platform.openh264": {
-            "directory": "lib/openh264",
-            "add-ld-path": ".",
-            "version": "2.5.1"
-        },
-				"org.freedesktop.Platform.ffmpeg-full": {
-					"directory": "lib/ffmpeg",
-					"add-ld-path": ".",
-					"version": "24.08"
-				}
-    },
-    "modules": [
+  "app-id": "com.thincast.client",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "5.15-25.08",
+  "sdk": "org.kde.Sdk",
+  "command": "rdc",
+  "separate-locales": false,
+  "appstream-compose": true,
+  "tags": [
+    "proprietary"
+  ],
+  "finish-args": [
+    "--share=ipc",
+    "--socket=x11",
+    "--share=network",
+    "--socket=pulseaudio",
+    "--socket=pcsc",
+    "--device=all",
+    "--filesystem=xdg-download",
+    "--filesystem=xdg-documents",
+    "--filesystem=/media",
+    "--filesystem=/run/media",
+    "--filesystem=xdg-run/gvfs",
+    "--filesystem=xdg-run/pipewire-0:ro",
+    "--talk-name=org.freedesktop.secrets",
+    "--talk-name=org.kde.kwalletd",
+    "--talk-name=org.kde.kwalletd5",
+    "--talk-name=org.kde.kwalletd6",
+    "--env=QT_VULKAN_LIB=libvulkan.so.1"
+  ],
+  "cleanup": [
+  ],
+  "cleanup-commands": [
+  ],
+  "add-extensions": {
+    "org.freedesktop.Platform.extra-codecs": {
+      "directory": "lib/extra-codecs",
+      "add-ld-path": "lib",
+      "version": "25.08-extra"
+    }
+  },
+  "modules": [
+    {
+      "name": "client",
+      "buildsystem": "simple",
+      "build-commands": [
+        "tar xf client.tar.xz -C /app"
+      ],
+      "cleanup": [
+        "/share/appdata/com.thincast.client.rdwebaccess.appdata.xml",
+        "/share/app-info/icons/flatpak/64x64@2/com.thincast.client.png",
+        "/share/app-info/icons/flatpak/128x128@2/com.thincast.client.png",
+        "/share/app-info/icons/flatpak/48x48/com.thincast.client.png",
+        "/share/app-info/icons/flatpak/128x128/com.thincast.client.png",
+        "/share/app-info/icons/flatpak/64x64/com.thincast.client.png"
+      ],
+      "sources": [
         {
-            "name": "client",
-            "buildsystem": "simple",
-            "build-commands": [
-                "tar xf client.tar.xz -C /app"
-            ],
-            "cleanup": [
-                "/share/appdata/com.thincast.client.rdwebaccess.appdata.xml",
-                "/share/app-info/icons/flatpak/64x64@2/com.thincast.client.png",
-                "/share/app-info/icons/flatpak/128x128@2/com.thincast.client.png",
-                "/share/app-info/icons/flatpak/48x48/com.thincast.client.png",
-                "/share/app-info/icons/flatpak/128x128/com.thincast.client.png",
-                "/share/app-info/icons/flatpak/64x64/com.thincast.client.png"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/394a06540758ef6ab6ce6735937bcb22212ea656f739cb369e1adad98fa6af42",
-                    "sha256": "394a06540758ef6ab6ce6735937bcb22212ea656f739cb369e1adad98fa6af42",
-                    "only-arches": [
-                        "x86_64"
-                    ]
-                },
-                {
-                    "type": "file",
-                    "dest-filename": "client.tar.xz",
-                    "url": "https://thincast.com/software/download/artifact/by-hash/75d9946180a249f529b7564b4aaa11523b85ee2336d798dd6884346f55ff0f12",
-                    "sha256": "75d9946180a249f529b7564b4aaa11523b85ee2336d798dd6884346f55ff0f12",
-                    "only-arches": [
-                        "aarch64"
-                    ]
-                }
-
-            ]
+          "type": "file",
+          "dest-filename": "client.tar.xz",
+          "url": "https://thincast.com/software/download/artifact/by-hash/f2a4acca5e178757f45aa710207b6dac89f3d001062ed621bd421700c117aad0",
+          "sha256": "f2a4acca5e178757f45aa710207b6dac89f3d001062ed621bd421700c117aad0",
+          "only-arches": [
+            "x86_64"
+          ]
+        },
+        {
+          "type": "file",
+          "dest-filename": "client.tar.xz",
+          "url": "https://thincast.com/software/download/artifact/by-hash/8e4db285d4298aa6cafd1fc47503b7076858622be2477fac715963a2a30003f0",
+          "sha256": "8e4db285d4298aa6cafd1fc47503b7076858622be2477fac715963a2a30003f0",
+          "only-arches": [
+            "aarch64"
+          ]
         }
-		]
+
+      ]
+    }
+  ]
 }
